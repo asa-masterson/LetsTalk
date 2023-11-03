@@ -11,7 +11,7 @@
 ***
 
 ## How to use:
-**To use this application simply clone this github repo and start python version 3.12 after installing everything in the requirements.txt file.**
+**To use this application simply clone this GitHub repo and start python version 3.12 after installing everything in the requirements.txt file.**
 ***
 
 ## To do:
