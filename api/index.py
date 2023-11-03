@@ -29,10 +29,22 @@ app = Flask(__name__)
 app.secret_key = b'ydaUwB6N9VfeqIhTeEY+Efj54Y/CRIGn1+/eZ8Ca9Xd4DMBLQVG7R+Rt0I+pg8s+'
 socketio = SocketIO(app)
 
+''' 
+# ** For local use **
+
 username = quote_plus('asamaste')
 password = quote_plus('P!GS@REP!NK')
-uri = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=true&w=majority" \
+MONGODB_URI = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=true&w=majority" \
     .format(username, password)
+'''
+
+# ** For vercel use **
+
+username = quote_plus('vercel-admin-user')
+password = quote_plus('GgJIrAGkaYlC6YwC')
+MONGODB_URI = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" \
+    .format(username, password)
+
 # Create a new client and connect to the server
 myclient = MongoClient(uri, server_api=ServerApi('1'))
 # Send a ping to confirm a successful connection
