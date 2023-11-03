@@ -4,15 +4,16 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from cryptography.fernet import Fernet
 from urllib.parse import quote_plus
-from urlextract import URLExtract
+# removed due to vercel read-only file system
+# from urlextract import URLExtract # urlextract~=1.8.0
 from datetime import datetime
 from markupsafe import Markup
 from bson import ObjectId
 import random
 import string
 
-extractor = URLExtract()
-extractor.update_when_older(7)  # updates when list is older that 7 days
+# extractor = URLExtract()
+# extractor.update_when_older(7)  # updates when list is older that 7 days
 
 key = Fernet.generate_key()
 AuthKey = Fernet(b'JrzqZnhrBUPp-o8qa2A55tVeJYxPeZwXW-yxVerFPpU=')  # in use to encrypt passwords
@@ -62,7 +63,8 @@ def getEmail():
 
 def reformat_links(message):
     arr = []
-    urls = extractor.find_urls(message)
+    # urls = extractor.find_urls(message)
+    urls = []
     if urls:
         for x in message.split():
             if x in urls:
@@ -80,7 +82,8 @@ def reformat_links(message):
 
 def reformat_links_sockets(message):
     arr = []
-    urls = extractor.find_urls(message)
+    # urls = extractor.find_urls(message)
+    urls = []
     if urls:
         for x in message.split():
             if x in urls:
