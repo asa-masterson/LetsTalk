@@ -385,7 +385,9 @@ def updateData():
                 if not email.strip() or not Name.strip() or not oldPassword.strip()or not newPassword.strip():
                     return "Please fill out all fields."
                 elif oldPassword == AuthKey.decrypt(password).decode('utf-8'):
-                    return "Cannot enter the same Password."
+                    return "Old password is incorrect."
+                elif oldPassword == AuthKey.decrypt(newPassword).decode('utf-8'):
+                    return "Cannot enter the same password."
 
                 data = mycol.find_one({"name": Name})
                 if not data:

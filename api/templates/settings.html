@@ -87,12 +87,12 @@
             xhttp = new XMLHttpRequest();
 
             if (oldPassword.length === 0 && newPassword.length === 0) { // If nothing is entered, do nothing.
-                document.getElementById("emInfo").innerHTML = "Nothing entered.";
+                document.getElementById("pwInfo").innerHTML = "Nothing entered.";
                 return;
             }
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
-                    document.getElementById("emInfo").innerHTML = this.responseText;
+                    document.getElementById("pwInfo").innerHTML = this.responseText;
                     if (this.responseText === "Password updated.") {
                         setTimeout(function() {
                             window.location.href = "/settings";
@@ -209,6 +209,7 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
+                    <div id="pwInfo" class="form-text"></div>
                     <div class="input-group">
                         <input type="password" name="oldPassword" placeholder="Old Password" id="PasswordVal1" class="form-control border border-info border-2" aria-describedby="pwHelp1">
                         <button class="btn btn-outline-info" type="button" id="button-addon3" onclick="showhide('1')"><i class="fa-solid fa-eye" id="eye1"></i></button>
