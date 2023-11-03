@@ -34,7 +34,7 @@ socketio = SocketIO(app)
 
 username = quote_plus('asamaste')
 password = quote_plus('P!GS@REP!NK')
-MONGODB_URI = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=true&w=majority" \
+uri = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=true&w=majority" \
     .format(username, password)
 '''
 
@@ -42,7 +42,7 @@ MONGODB_URI = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=tru
 
 username = quote_plus('vercel-admin-user')
 password = quote_plus('GgJIrAGkaYlC6YwC')
-MONGODB_URI = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" \
+uri = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" \
     .format(username, password)
 
 # Create a new client and connect to the server
