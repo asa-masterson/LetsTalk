@@ -5,7 +5,7 @@
 ## Description:
 **This is a snapshot of my application before I configured it to work on vercel to make my idea mainstream.**
 
-**This Flask - SocketIO program uses web sockets to create a minimalistic chatroom experiance where users can chat to anyone with an internet connection.**
+**This Flask - SocketIO program uses web sockets to create a minimalistic chatroom experience where users can chat to anyone with an internet connection.**
 
 **LetsTalk includes a user page where you can change your details & login information, aswell as MongoDB as the backend to store all user data and existing messages so you don't miss anything when you're gone.**
 ***
