@@ -102,7 +102,7 @@ def reformat_links_sockets(message):
 @app.route("/favicon.ico")
 @app.route("/logo.svg")
 def favicon():
-    return send_from_directory('../assets', 'comments-regular.svg')
+    return send_from_directory('assets', 'comments-regular.svg')
 
 
 @app.errorhandler(404)
@@ -402,4 +402,4 @@ def updateData():
 
 if __name__ == '__main__':
     socketio.run(app, host='127.0.0.1', debug=True,
-                 allow_unsafe_werkzeug=True)  # , ssl_context=('server.crt', 'server.key')) # ssl_context="adhoc"
+                 allow_unsafe_werkzeug=True)
