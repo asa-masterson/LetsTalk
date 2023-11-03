@@ -4,16 +4,15 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from cryptography.fernet import Fernet
 from urllib.parse import quote_plus
-# removed due to vercel read-only file system
-# from urlextract import URLExtract # urlextract~=1.8.0
+from urlextract import URLExtract
 from datetime import datetime
 from markupsafe import Markup
 from bson import ObjectId
 import random
 import string
 
-# extractor = URLExtract()
-# extractor.update_when_older(7)  # updates when list is older that 7 days
+extractor = URLExtract()
+extractor.update_when_older(7)  # updates when list is older that 7 days
 
 key = Fernet.generate_key()
 AuthKey = Fernet(b'JrzqZnhrBUPp-o8qa2A55tVeJYxPeZwXW-yxVerFPpU=')  # in use to encrypt passwords
@@ -29,20 +28,9 @@ app = Flask(__name__)
 app.secret_key = b'ydaUwB6N9VfeqIhTeEY+Efj54Y/CRIGn1+/eZ8Ca9Xd4DMBLQVG7R+Rt0I+pg8s+'
 socketio = SocketIO(app)
 
-''' 
-# ** For local use **
-
 username = quote_plus('asamaste')
 password = quote_plus('P!GS@REP!NK')
 uri = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/?retryWrites=true&w=majority" \
-    .format(username, password)
-'''
-
-# ** For vercel use **
-
-username = quote_plus('vercel-admin-user')
-password = quote_plus('GgJIrAGkaYlC6YwC')
-uri = "mongodb+srv://{}:{}@messages.igbjxpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" \
     .format(username, password)
 
 # Create a new client and connect to the server
@@ -75,7 +63,7 @@ def getEmail():
 
 def reformat_links(message):
     arr = []
-    # urls = extractor.find_urls(message)
+    urls = extractor.find_urls(message)
     urls = []
     if urls:
         for x in message.split():
@@ -94,7 +82,7 @@ def reformat_links(message):
 
 def reformat_links_sockets(message):
     arr = []
-    # urls = extractor.find_urls(message)
+    urls = extractor.find_urls(message)
     urls = []
     if urls:
         for x in message.split():
