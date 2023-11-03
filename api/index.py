@@ -102,7 +102,7 @@ def reformat_links_sockets(message):
 @app.route("/favicon.ico")
 @app.route("/logo.svg")
 def favicon():
-    return send_from_directory('assets', 'comments-regular.svg')
+    return send_from_directory('../assets', 'comments-regular.svg')
 
 
 @app.errorhandler(404)
